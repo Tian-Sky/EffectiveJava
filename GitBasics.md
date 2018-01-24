@@ -1,7 +1,7 @@
-#Git Basics
+# Git Basics
 --
 
-###1. First time Setup
+### 1. First time Setup
 Set your name and email that associated with your git.
 
 	$ git config --global user.name "John Doe"
@@ -12,7 +12,7 @@ To check you settings:
 	$ git config --list
 	$ git config user.name
 	
-###2. Get help
+### 2. Get help
 If you ever need help while using Git, there are two equivalent ways to get the comprehensive manual page (manpage) help for any of the Git commands:
 
 	$ git help <verb>
@@ -26,7 +26,7 @@ In addition, if you don’t need the full-blown manpage help, but just need a qu
     -n, --dry-run         dry run
     -v, --verbose         be verbose
 	
-###3. Create and clone a new repository
+### 3. Create and clone a new repository
 As I want to use Github, I just create a new repository on Github and clone it locally. Just select "Clone with HTTPS" on Github, copy the URL. 
 
 On your laptop, direct to the folder you like in terminal, then use the command:
@@ -41,7 +41,7 @@ If you want to clone the repository into a directory named something other than 
 
 That command does the same thing as the previous one, but the target directory is called *OtherName*.
 
-###4. Recording changes
+### 4. Recording changes
 At this step, you can start to make changes and commit them.
 
 Remember that each file in your working directory can be in one of two states: tracked or untracked. Tracked files are files that were in the last snapshot; they can be unmodified, modified, or staged. In short, tracked files are files that Git knows about.
@@ -50,7 +50,7 @@ Untracked files are everything else — any files in your working directory 
 
 As you edit files, Git sees them as modified, because you’ve changed them since your last commit. As you work, you selectively stage these modified files and then commit all those staged changes, and the cycle repeats.
 
-####Checking status of your file
+#### Checking status of your file
 
 	$ git status
 	On branch master
@@ -59,7 +59,7 @@ As you edit files, Git sees them as modified, because you’ve changed them sinc
 
 This means you have a clean working directory — in other words, none of your tracked files are modified. 
 
-####Add new file
+#### Add new file
 Let’s say you add a new file to your project, a simple README file. If the file didn’t exist before, and you run git status, you see your untracked file like so:
 
 	$ echo 'My Project' > README
@@ -87,7 +87,7 @@ Now check your states and you will see:
 
     new file:   README
 
-####Staging Modified Files
+#### Staging Modified Files
 If you change a file, and use ``git add``, then make changes to it again, you will see something like this:
 
 	$ vim CONTRIBUTING.md
@@ -108,7 +108,7 @@ If you change a file, and use ``git add``, then make changes to it again, you wi
 
 Now CONTRIBUTING.md is listed as **both staged and unstaged**. How is that possible? It turns out that Git stages a file exactly as it is when you run the git add command. If you commit now, the version of CONTRIBUTING.md as it was when you last ran the git add command is how it will go into the commit, not the version of the file as it looks in your working directory when you run git commit. If you modify a file after you run git add, you have to run git add again to stage the latest version of the file.
 
-####Short Status
+#### Short Status
 While the git status output is pretty comprehensive, it’s also quite wordy. Git also has a short status flag so you can see your changes in a more compact way. If you run git status -s or git status --short you get a far more simplified output from the command:
 
 	$ git status -s
@@ -120,7 +120,7 @@ While the git status output is pretty comprehensive, it’s also quite wordy. Gi
 
 New files that aren’t tracked have a ?? next to them, new files that have been added to the staging area have an A, modified files have an M and so on. There are two columns to the output - the left-hand column indicates the status of the staging area and the right-hand column indicates the status of the working tree. So for example in that output, the README file is modified in the working directory but not yet staged, while the lib/simplegit.rb file is modified and staged. The Rakefile was modified, staged and then modified again, so there are changes to it that are both staged and unstaged.
 
-###5. Ignoring chnages
+### 5. Ignoring chnages
 To ignore changes, use .gitignore file. Here is an example .gitignore file:
 
 	$ cat .gitignore
@@ -160,7 +160,7 @@ Here is another example .gitignore file:
 
 Tips: GitHub maintains a fairly comprehensive list of good .gitignore file examples for dozens of projects and languages at [https://github.com/github/gitignore](https://github.com/github/gitignore) if you want a starting point for your project.
 
-###6. Viewing Your Staged and Unstaged Changes
+### 6. Viewing Your Staged and Unstaged Changes
 To see what you’ve changed but not yet staged, type git diff with no other arguments:
 
 	$ git diff
@@ -176,7 +176,7 @@ If you want to see what you’ve staged that will go into your next commit, you 
 	@@ -0,0 +1 @@
 	+My Project
 
-###7. Commiting your changes
+### 7. Commiting your changes
 
 	$ git commit
 
