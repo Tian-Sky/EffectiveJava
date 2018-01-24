@@ -180,6 +180,41 @@ If you want to see what you’ve staged that will go into your next commit, you 
 
 	$ git commit
 
+You need to type in the commit information. 
+
+Alternatively, you can type your commit message inline with the commit command by specifying it after a -m flag, like this:
+
+	$ git commit -m "Story 182: Fix benchmarks for speed"
+	[master 463dc4f] Story 182: Fix benchmarks for speed
+ 	 2 files changed, 2 insertions(+)
+ 	 create mode 100644 README
+ 	 
+#### Skipping the Staging Area
+If you want to skip the staging area, which means skip ``git add``, you can use `` -a ``:
+
+	$ git commit -a -m 'added new benchmarks'
+	[master 83e38c7] added new benchmarks
+ 	  1 file changed, 5 insertions(+), 0 deletions(-)
+
+Notice how you don’t have to run git add on the CONTRIBUTING.md file in this case before you commit. That’s because the -a flag includes all changed files. This is convenient, but be careful; sometimes this flag will cause you to include unwanted changes.
+
+### 8. Removing files
+The ``git rm`` command allows you to remove a file from your tracked files. It **also removes the file from your working directory**.
+
+The next time you commit, the file will be gone and no longer tracked. If you modified the file and added it to the staging area already, you must force the removal with the -f option.
+
+However, you may want to do is to **keep the file in your working tree but remove it from your staging area**. In other words, you may want to keep the file on your hard drive but not have Git track it anymore. This is particularly useful if you forgot to add something to your .gitignore file and accidentally staged it, like a large log file or a bunch of .a compiled files. To do this, use the --cached option:
+
+	$ git rm --cached README
+	
+### 9. Moving files
+Unlike many other VCS systems, Git doesn’t explicitly track file movement. If you rename a file in Git, no metadata is stored in Git that tells it you renamed the file. However, Git is pretty smart about figuring that out after the fact — we’ll deal with detecting file movement a bit later.
+
+Thus it’s a bit confusing that Git has a mv command. If you want to rename a file in Git, you can run something like:
+
+	$ git mv file_from file_to
+
+
 
 
 --
